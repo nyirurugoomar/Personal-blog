@@ -31,6 +31,101 @@ p {
   font-size: 1.4rem;
   line-height: 1, 9rem;
 }
+/* HEADING START  */
+#header {
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: auto;
+}
+#header .header {
+  min-height: 8vh;
+  background-color: rgba(31, 30, 30, 0.24);
+}
+#header .nav-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 100%;
+  max-width: 1300px;
+  padding: 0 10px;
+}
+#header .nav-list ul {
+  list-style: none;
+  position: absolute;
+  background-color: rgb(31, 30, 30);
+  width: 100vw;
+  height: 100vh;
+  left: 0;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+  overflow: hidden;
+}
+#header .nav-list ul a {
+  font-size: 2.5rem;
+  font-weight: 500;
+  letter-spacing: 0.2rem;
+  text-decoration: none;
+  color: white;
+  text-transform: uppercase;
+  padding: 20px;
+  display: block;
+}
+#header .nav-list ul a::after {
+  content: attr(data-after);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  color: rgba(240, 248, 255, 0.021);
+  font-size: 10rem;
+  letter-spacing: 50px;
+  z-index: -1;
+  transition: 0.3s ease letter-spacing;
+}
+#header .nav-list ul li:hover a::after {
+  transform: translate(-50%, -50%) scale(1);
+  letter-spacing: initial;
+}
+#header .hamburger {
+  z-index: 100;
+  height: 60px;
+  width: 60px;
+  display: inline-block;
+  border: 3px solid white;
+  position: relative;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+#header .hamburger .bar {
+  height: 2px;
+  width: 30px;
+  background-color: white;
+  position: relative;
+}
+#header .hamburger .bar::after,
+#header .hamburger .bar::before {
+  content: "";
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  left: 0;
+  background-color: white;
+  transition: 0.3s ease;
+  transition-property: top, bottom;
+}
+
+/* HEADING END*/
 
 .section-title {
   font-size: 4rem;
@@ -160,6 +255,7 @@ make h1 to animation seconds
   line-height: 2.5rem;
   font-weight: 300;
   letter-spacing: 0.05rem;
+  margin-bottom: 20px;
 }
 #services .service-bottom {
   color: white;
@@ -211,6 +307,10 @@ make h1 to animation seconds
 
 #services .service-item p {
   color: white;
+}
+#services .service-top {
+  width: 800px;
+  margin: 0 auto;
 }
 
 /*project recent section start*/
@@ -457,6 +557,7 @@ make h1 to animation seconds
     flex-basis: 45%;
     margin: 1.5%;
   }
+
   #projects .project-item {
     flex-direction: row;
   }
@@ -501,7 +602,28 @@ make h1 to animation seconds
     width: 100%;
     display: flex;
     flex-direction: row;
+    margin: 0;
+    padding: 20px;
+  }
+  #contact .contact-item {
+    margin: 20px;
+  }
+  #contact .contact-item .icon {
+    height: 40px;
+    width: 40px;
+  }
+  #contact .contact-item .contact-info h2 {
+    width: 100%;
+  }
+}
+/* Media query for tablet END*/
+
+/* Media query for  desktop Start */
+@media only screen and (min-width: 1200px) {
+  #services .service-bottom .service-item {
+    flex-basis: 22%;
+    margin: 1.5%;
   }
 }
 
-/* Media query for tablet END*/
+/* Media query for  desktop END */
